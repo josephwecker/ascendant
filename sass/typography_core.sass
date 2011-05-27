@@ -1,0 +1,51 @@
+// TODO:
+//  - Adaptability (ala Less Framework)
+//  - Automatic grid-testing
+
+//---- Main global parameters
+$unit:              27px   !default
+$columns:           10     !default
+$body-side-padding: $unit  !default
+$body-top-padding:  $unit  !default
+$base-row-height:   1.5    !default
+$units-per-column:  3      !default
+
+
+//---- Basic constant(s)
+$ie-font-ratio:     16px / 100%;
+$column-width:      $unit * $units-per-column
+$body-width:        ($column-width * $columns) + ($unit * ($columns - 1))
+
+body
+  font-size:        $base-font-size / $ie-font-ratio
+  padding:          $body-top-padding $body-side-padding
+  -webkit-text-size-adjust: 100%
+  width:            $body-width
+
+html>body
+  @include aligned-text
+  padding:          $body-top-padding $body-side-padding
+
+=col($colnum)
+  position:       absolute
+  left:           $side_padding + (($colnum - 1) * ($column-width + $unit))
+
+@function u2px($n)
+  @return $n * $unit
+
+=aligned-text($rheight:1, $tpad:0, $bpad:0, $bordpx:0px, $lspace:1.5, $adj:0)
+  $font-size:     $unit / $lspace
+  $text-adjust:   (($unit - $font-size) / 2) + ($font-size / 6)
+  padding-top:    round(($rheight * $text-adjust) - $bordpx)
+  margin-top:     $unit * $tpad
+  margin-bottom:  round( - ($rheight * $text-adjust))
+  padding-bottom: $unit * $bpad
+  font-size:      $rheight * $font-size
+  line-height:    $rheight * $unit
+
+
+$grid-test:       false !default
+@if $grid-test==false
+  body:first-child:before
+    content: "muahaha"
+
