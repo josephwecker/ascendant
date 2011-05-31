@@ -48,3 +48,15 @@ http://webtypography.net/toc/
 - See http://www.graphic-design.com/DTG/bergsland/numbering_typography.html
 - http://www.w3.org/TR/css3-fonts/#font-variant-numeric-prop supported by
   firefox 4 so far - as long as you have some good opentype fonts.
+
+
+== Forms
+- To ensure that you can size them and have padding etc. not expand the
+  position:
+
+  textarea {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
+
