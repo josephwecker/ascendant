@@ -50,7 +50,6 @@ http://webtypography.net/toc/
   firefox 4 so far - as long as you have some good opentype fonts.
 
 
-
 == Print
 - Use best pt sizes for fonts
 - Full urls for links
@@ -60,3 +59,13 @@ http://webtypography.net/toc/
 - http://www.alistapart.com/articles/goingtoprint/
 
 - Site sizes in pixels -> Monitor dpi (usually 96dpi) -> inches -> / 72 => #pt
+
+== Forms
+- To ensure that you can size them and have padding etc. not expand the
+  position:
+
+  textarea {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
