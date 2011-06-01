@@ -48,3 +48,15 @@ http://webtypography.net/toc/
 - See http://www.graphic-design.com/DTG/bergsland/numbering_typography.html
 - http://www.w3.org/TR/css3-fonts/#font-variant-numeric-prop supported by
   firefox 4 so far - as long as you have some good opentype fonts.
+
+
+
+== Print
+- Use best pt sizes for fonts
+- Full urls for links
+  @media print {
+       #main-content a[href]:after { " (" attr(href) ") "; }
+  }
+- http://www.alistapart.com/articles/goingtoprint/
+
+- Site sizes in pixels -> Monitor dpi (usually 96dpi) -> inches -> / 72 => #pt
