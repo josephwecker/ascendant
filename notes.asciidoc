@@ -1,6 +1,12 @@
 == General
 http://webtypography.net/toc/
 
+Change actual grid parameters / line-height, etc., based on media queries. Some
+degree of flex before having to change actual content.
+
+Beautiful & functional at any size / orientation - verifiably so
+
+
 == Sizing
 - If possible: font-size:100% in body and font-sizes/line-heights in em
 
@@ -60,3 +66,6 @@ http://webtypography.net/toc/
     box-sizing: border-box;         /* Opera/IE 8+ */
   }
 
+
+== Infinite length
+http://warpspire.com/experiments/history-api/
