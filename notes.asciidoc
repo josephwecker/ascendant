@@ -56,6 +56,16 @@ Beautiful & functional at any size / orientation - verifiably so
   firefox 4 so far - as long as you have some good opentype fonts.
 
 
+== Print
+- Use best pt sizes for fonts
+- Full urls for links
+  @media print {
+       #main-content a[href]:after { " (" attr(href) ") "; }
+  }
+- http://www.alistapart.com/articles/goingtoprint/
+
+- Site sizes in pixels -> Monitor dpi (usually 96dpi) -> inches -> / 72 => #pt
+
 == Forms
 - To ensure that you can size them and have padding etc. not expand the
   position:
