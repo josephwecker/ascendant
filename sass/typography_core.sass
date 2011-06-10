@@ -87,17 +87,28 @@ $golden:            1.6180339887
 // 28 | 1.4 | 20
 $unit:              29px    !default
 $columns:           6       !default
-$body-side-padding: $unit   !default
-$body-top-padding:  $unit   !default
-//$base-line-height:  $golden !default
-$base-line-height:  $golden
+$base-line-height:  $golden !default
 $units-per-column:  10      !default
 $rows-per-group:    8       !default
 $show-grid:         false   !default
-$base-font-size:    $unit / $base-line-height
+$base-font-size:    round($unit / $base-line-height)
 $h-unit:            $base-font-size
+$body-side-padding: $h-unit !default
+$body-top-padding:  $h-unit !default
 //$h-unit:            round($base-font-size / 3.0 * 2.0 * 1.618) // roughly the x-height * Golden ratio
 $gutter-size:       $h-unit
+
+@if $show-grid
+  @debug "unit           | #{$unit}"
+  @debug "h-unit         | #{$h-unit}"
+  @debug "columns        | #{$columns}"
+  @debug "side-padding   | #{$body-side-padding}"
+  @debug "top-padding    | #{$body-top-padding}"
+  @debug "gutters        | #{$gutter-size}"
+  @debug "line-height    | #{$base-line-height}"
+  @debug "units-per-col  | #{$units-per-column}"
+  @debug "rows-per-group | #{$rows-per-group}"
+  @debug "base-font-size | #{$base-font-size}"
 
 
 //---- Basic constant(s)
@@ -151,7 +162,9 @@ $body-width:        ($column-width * $columns) + ($gutter-size * ($columns - 1))
   padding-bottom: round($unit * $bpad)
   font-size:      ($rheight * $font-size)
   line-height:    ($rheight * $unit)
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased
+  @if $show-grid
+    @debug "Font-size: #{($rheight * $font-size)}"
 
 body
   font-size:        ($unit / $base-line-height) / $ie-font-ratio
