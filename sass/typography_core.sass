@@ -117,7 +117,16 @@ $column-width:      $h-unit * $units-per-column
 $body-width:        ($column-width * $columns) + ($gutter-size * ($columns - 1))
 
 
-=col($colnum)
+//@function row($major:1,$minor:1)
+  @return (($major - 1) * $gutter-size) + (($major - 1) * $rows-per-group * $unit) + (($minor - 1) * $unit) + $body-top-padding
+@function row($major:1,$minor:1)
+  @return (($major - 1) * $rows-per-group * $unit) + (($minor - 1) * $unit) + $body-top-padding
+@function col($major:1,$minor:1)
+  @return (($major - 1) * $gutter-size) + (($major - 1) * $units-per-column * $h-unit) + (($minor - 1) * $h-unit) + $body-side-padding
+@function vgutter($pos:1)
+  @return ($pos * $units-per-column * $h-unit) + (($pos - 1) * $gutter-size) + $body-side-padding
+
+//=col($colnum)
   position:         absolute
   left:             $body-side-padding + ($column-width * $colnum) + ($gutter-size * ($colnum - 1))
 
@@ -149,6 +158,10 @@ $body-width:        ($column-width * $columns) + ($gutter-size * ($columns - 1))
   // f / 3.666 --> Portland LDO
   // f / 3.075 --> Papyrus
 
+  @if $show-grid
+    @debug "Font-size: #{($rheight * $font-size)}"
+    //@debug "unit: #{$unit}"
+    //@debug "bpad: #{$bpad}"
   $descend:       $font-size / (16.0 / 3.0)
   //$descend:       $font-size / 6.0
   $text-adjust:   (($unit - $font-size) / 2.0) + $descend
@@ -163,8 +176,6 @@ $body-width:        ($column-width * $columns) + ($gutter-size * ($columns - 1))
   font-size:      ($rheight * $font-size)
   line-height:    ($rheight * $unit)
   -webkit-font-smoothing: antialiased
-  @if $show-grid
-    @debug "Font-size: #{($rheight * $font-size)}"
 
 body
   font-size:        ($unit / $base-line-height) / $ie-font-ratio
@@ -175,6 +186,12 @@ body
 html>body
   @include aligned-text
   padding:          $body-top-padding $body-side-padding
+
+@function pixel($col:0,$opac:1,$w:1,$h:1)
+  @if $opac == 1
+    @return unquote('url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%3E%3Crect%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%20style%3D%22fill%3A#{$col}%22%2F%3E%3C%2Fsvg%3E)')
+  @else
+    @return unquote('url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%3E%3Crect%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%20style%3D%22fill%3A#{$col}%22%20opacity%3D%22#{$opac}%22%2F%3E%3C%2Fsvg%3E)')
 
 
 @if $show-grid
