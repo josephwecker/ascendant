@@ -187,6 +187,9 @@ html>body
   @include aligned-text
   padding:          $body-top-padding $body-side-padding
 
+li
+  height: $unit
+
 @function pixel($col:0,$opac:1,$w:1,$h:1)
   @if $opac == 1
     @return unquote('url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%3E%3Crect%20width%3D%22#{$w}%22%20height%3D%22#{$h}%22%20style%3D%22fill%3A#{$col}%22%2F%3E%3C%2Fsvg%3E)')
@@ -196,9 +199,11 @@ html>body
 
 @if $show-grid
   // URL decode these to see that they're just very simple svg files
-  #main
+  body
     outline: 1px solid red
     background-image: unquote('url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221px%22%20height%3D%22#{ $unit }%22%20version%3D%221.0%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%221px%22%20height%3D%221px%22%20style%3D%22fill%3A%23FF0000%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E)')
+    background-position: $body-top-padding $body-side-padding
+
     //, url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22#{ $column-width + $unit }%22%20height%3D%221px%22%20version%3D%221.0%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%221px%22%20height%3D%221px%22%20style%3D%22fill%3A%230077FF%22%20opacity%3D%220.4%22%2F%3E%3Crect%20x%3D%22#{ $column-width + 1px }%22%20y%3D%220%22%20width%3D%22#{ $h-unit }%22%20height%3D%221px%22%20style%3D%22fill%3A%23777777%22%20opacity%3D%220.15%22%2F%3E%3C%2Fsvg%3E), url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221px%22%20height%3D%22#{ $unit * ($rows-per-group + 1) }%22%20version%3D%221.0%22%3E%3Crect%20x%3D%220%22%20y%3D%22#{ $unit * $rows-per-group + 1 }%22%20width%3D%221px%22%20height%3D%22#{ $unit }%22%20style%3D%22fill%3A%23777777%22%20opacity%3D%220.15%22%2F%3E%3C%2Fsvg%3E)')
     //background-origin: padding-box, padding-box, pad
     //background-clip: padding-box, padding-box
