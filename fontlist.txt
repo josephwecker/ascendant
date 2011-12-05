@@ -1,0 +1,11 @@
+Garamond
+Bodoni
+Century Expanded
+Helvetica
+Optima
+Futura
+Univers
+Calson
+Baskerville
+
+Bank Gothic
