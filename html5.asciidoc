@@ -1,0 +1,15 @@
+
+
+* Backbone.js
+
+* Zepto (very light webkit replacement for jquery)
+
+* Stich -> common.js stiched together for browser
+
+* require.js
+
+* underscore.js
+
+* jquery Mobile
+
+
