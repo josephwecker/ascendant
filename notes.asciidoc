@@ -79,3 +79,8 @@ Beautiful & functional at any size / orientation - verifiably so
 
 == Infinite length
 http://warpspire.com/experiments/history-api/
+
+
+== Other References
+http://thatcoolguy.github.com/gridless-boilerplate/
+normalize.css
