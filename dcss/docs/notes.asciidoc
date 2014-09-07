@@ -1,0 +1,32 @@
+
+
+1. Basic equivalence to sass/less/zss
+2. Easy js manipulation of values that's congruent with the style language
+3. Trigger and react to events
+4. Halt degenerate cycles
+5. Relative declarations in style language
+6. Predicates for state-machine like behavior
+
+
+---
+
+.General
+ - Ability to mix units (e.g., 100% - 20px)
+
+.Typography
+ - "lines" unit for baseline-based page
+ - Better hyphenator (minimize std-deviation by hyphenating at different
+   locations or even moving words to previus/subsequent lines even when they
+   don't have to).
+ - 
+
+
+
+
+.Installed
+ - node.js (for coffeescript)
+ - coffeescript
+ - middleman (static site builder)
+ - vim-pathogen (for vim-coffee-script)
+ - vim-coffeescript
+
